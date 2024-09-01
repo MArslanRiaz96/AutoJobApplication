@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AutoJobApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e3efb6ff747918600c3124bb34529cc1eecf992")]
 [assembly: System.Reflection.AssemblyProductAttribute("AutoJobApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AutoJobApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

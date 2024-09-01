@@ -41,3 +41,4 @@ D:\VS Projects\AutoJobApplication\AutoJobApplication\obj\Debug\net6.0\refint\Aut
 D:\VS Projects\AutoJobApplication\AutoJobApplication\obj\Debug\net6.0\AutoJobApplication.pdb
 D:\VS Projects\AutoJobApplication\AutoJobApplication\obj\Debug\net6.0\AutoJobApplication.genruntimeconfig.cache
 D:\VS Projects\AutoJobApplication\AutoJobApplication\obj\Debug\net6.0\ref\AutoJobApplication.dll
+D:\VS Projects\AutoJobApplication\AutoJobApplication\obj\Debug\net6.0\AutoJobApplication.sourcelink.json
