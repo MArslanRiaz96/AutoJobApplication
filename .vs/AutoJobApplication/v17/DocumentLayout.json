@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\VS Projects\\AutoJobApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\pages\\uploadcv.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\pages\\uploadcv.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\pages\\downloadcv.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\pages\\downloadcv.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\pages\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\pages\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\data\\filestateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\data\\filestateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\interfaces\\ifilestateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\interfaces\\ifilestateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\data\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\data\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\data\\cvservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\data\\cvservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|d:\\vs projects\\autojobapplication\\autojobapplication\\data\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF6A0965-5BE5-4382-9547-47D8B9E99C26}|AutoJobApplication\\AutoJobApplication.csproj|solutionrelative:autojobapplication\\data\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FileUploadService.cs",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\FileUploadService.cs",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Data\\FileUploadService.cs",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\FileUploadService.cs",
+              "RelativeToolTip": "AutoJobApplication\\Data\\FileUploadService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T01:20:48.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Host.cshtml",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\_Host.cshtml",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Pages\\_Host.cshtml",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\_Host.cshtml",
+              "RelativeToolTip": "AutoJobApplication\\Pages\\_Host.cshtml",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAuwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-01T01:17:31.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DownloadCv.razor",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\DownloadCv.razor",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Pages\\DownloadCv.razor",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\DownloadCv.razor",
+              "RelativeToolTip": "AutoJobApplication\\Pages\\DownloadCv.razor",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAUAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-01T01:15:15.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Program.cs",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Program.cs",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Program.cs",
+              "RelativeToolTip": "AutoJobApplication\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T01:39:17.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.razor",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\App.razor",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Pages\\App.razor",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\App.razor",
+              "RelativeToolTip": "AutoJobApplication\\Pages\\App.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-01T01:30:14.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FileStateService.cs",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\FileStateService.cs",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Data\\FileStateService.cs",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\FileStateService.cs",
+              "RelativeToolTip": "AutoJobApplication\\Data\\FileStateService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T01:39:01.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Shared\\MainLayout.razor",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Shared\\MainLayout.razor",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Shared\\MainLayout.razor",
+              "RelativeToolTip": "AutoJobApplication\\Shared\\MainLayout.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-01T02:01:24.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UploadCv.razor",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\UploadCv.razor",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Pages\\UploadCv.razor",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Pages\\UploadCv.razor",
+              "RelativeToolTip": "AutoJobApplication\\Pages\\UploadCv.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-01T01:34:06.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Shared\\NavMenu.razor",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Shared\\NavMenu.razor",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Shared\\NavMenu.razor",
+              "RelativeToolTip": "AutoJobApplication\\Shared\\NavMenu.razor",
+              "ViewState": "AQIAABAAAAAAAAAAAAAuwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-01T02:16:01.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CvService.cs",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\CvService.cs",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Data\\CvService.cs",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\CvService.cs",
+              "RelativeToolTip": "AutoJobApplication\\Data\\CvService.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAUwBoAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T01:20:59.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IFileStateService.cs",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Interfaces\\IFileStateService.cs",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Interfaces\\IFileStateService.cs",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Interfaces\\IFileStateService.cs",
+              "RelativeToolTip": "AutoJobApplication\\Interfaces\\IFileStateService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T02:08:55.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\EmailService.cs",
+              "RelativeDocumentMoniker": "AutoJobApplication\\Data\\EmailService.cs",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\Data\\EmailService.cs",
+              "RelativeToolTip": "AutoJobApplication\\Data\\EmailService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAUwAkAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-01T01:24:08.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "index.html",
+              "DocumentMoniker": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "AutoJobApplication\\wwwroot\\index.html",
+              "ToolTip": "D:\\VS Projects\\AutoJobApplication\\AutoJobApplication\\wwwroot\\index.html",
+              "RelativeToolTip": "AutoJobApplication\\wwwroot\\index.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-09-01T01:19:18.862Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

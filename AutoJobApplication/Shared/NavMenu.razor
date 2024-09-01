@@ -1,0 +1,32 @@
+﻿<nav>
+    <ul>
+        <li><NavLink href="/" Match="NavLinkMatch.All">Home</NavLink></li>
+        <li><NavLink href="/upload">Upload CV</NavLink></li>
+        <li><NavLink href="/add-skills">Add Skills</NavLink></li>
+        <li><NavLink href="/download">Download CV</NavLink></li>
+        <li><NavLink href="/email">Email CV</NavLink></li>
+    </ul>
+</nav>
+
+<style>
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        nav ul li {
+            display: block; /* Changed to block for vertical navigation */
+            margin-bottom: 10px;
+        }
+
+            nav ul li a {
+                text-decoration: none;
+                color: #007bff;
+                padding: 5px;
+            }
+
+                nav ul li a.active {
+                    font-weight: bold;
+                }
+</style>

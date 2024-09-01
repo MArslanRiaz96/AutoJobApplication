@@ -1,0 +1,44 @@
+﻿@page "/download"
+@using AutoJobApplication.Data
+@using AutoJobApplication.Interfaces
+@inject IJSRuntime JS
+@inject IFileUploadService FileUploadService
+@inject FileStateService FileStateService
+
+<h3>Upload and Download Your Updated CV</h3>
+<button @onclick="DownloadNewCv">Download Updated CV</button>
+
+@if (!string.IsNullOrEmpty(DownloadMessage))
+{
+    <p>@DownloadMessage</p>
+}
+
+@code {
+    private string DownloadMessage;
+
+    private async Task DownloadNewCv()
+    {
+        var file = FileStateService.UploadedFile;
+
+        if (file != null)
+        {
+            // Convert the uploaded file to a byte array
+            var fileBytes = await FileUploadService.UploadFileAsync(file);
+            if (fileBytes != null && fileBytes.Length > 0)
+            {
+                // Use JavaScript interop to save the file
+                string base64Cv = Convert.ToBase64String(fileBytes);
+                await JS.InvokeVoidAsync("saveAsFile", file.Name, base64Cv);
+                DownloadMessage = "CV downloaded successfully.";
+            }
+            else
+            {
+                DownloadMessage = "Error: Unable to generate updated CV.";
+            }
+        }
+        else
+        {
+            DownloadMessage = "No CV has been uploaded yet. Please upload a CV first.";
+        }
+    }
+}
