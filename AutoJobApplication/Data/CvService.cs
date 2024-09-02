@@ -6,7 +6,6 @@ using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace AutoJobApplication.Data
 {
@@ -20,48 +19,14 @@ namespace AutoJobApplication.Data
             try
             {
                 // Check if the file is a DOCX file
-                if (fileData.Length > 4 && fileData[0] == 'P' && fileData[1] == 'K')
+                if (IsDocxFile(fileData))
                 {
-                    using (var memoryStream = new MemoryStream(fileData))
-                    {
-                        using (WordprocessingDocument doc = WordprocessingDocument.Open(memoryStream, true))
-                        {
-                            var body = doc.MainDocumentPart.Document.Body;
-
-                            foreach (var paragraph in body.Elements<DocumentFormat.OpenXml.Wordprocessing.Paragraph>())
-                            {
-                                if (paragraph.InnerText.Contains("Web Development", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    paragraph.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(", " + string.Join(", ", skills))));
-                                    break;
-                                }
-                            }
-
-                            doc.Save();
-                        }
-
-                        return memoryStream.ToArray();
-                    }
+                    return AddSkillsToDocx(fileData, skills);
                 }
                 // Check if the file is a PDF file
-                else if (fileData.Length > 4 && fileData[0] == '%' && fileData[1] == 'P' && fileData[2] == 'D' && fileData[3] == 'F')
+                else if (IsPdfFile(fileData))
                 {
-                    using (var outputStream = new MemoryStream())
-                    {
-                        using (PdfReader pdfReader = new PdfReader(fileData))
-                        {
-                            using (PdfStamper pdfStamper = new PdfStamper(pdfReader, outputStream))
-                            {
-                                PdfContentByte cb = pdfStamper.GetOverContent(pdfReader.NumberOfPages);
-                                cb.BeginText();
-                                cb.SetFontAndSize(BaseFont.CreateFont(), 12);
-                                cb.ShowTextAligned(Element.ALIGN_LEFT, "Additional Skills: " + string.Join(", ", skills), 100, 100, 0);
-                                cb.EndText();
-                            }
-                        }
-
-                        return outputStream.ToArray();
-                    }
+                    return AddSkillsToPdf(fileData, skills);
                 }
                 else
                 {
@@ -71,6 +36,78 @@ namespace AutoJobApplication.Data
             catch (Exception ex)
             {
                 throw new InvalidOperationException("An unexpected error occurred while processing the file.", ex);
+            }
+        }
+
+        private bool IsDocxFile(byte[] fileData)
+        {
+            // DOCX files are basically ZIP files, so they start with 'PK'
+            return fileData.Length > 4 && fileData[0] == 'P' && fileData[1] == 'K';
+        }
+
+        private bool IsPdfFile(byte[] fileData)
+        {
+            // PDF files start with '%PDF'
+            return fileData.Length > 4 && fileData[0] == '%' && fileData[1] == 'P' && fileData[2] == 'D' && fileData[3] == 'F';
+        }
+
+        private byte[] AddSkillsToDocx(byte[] fileData, List<string> skills)
+        {
+            using (var memoryStream = new MemoryStream(fileData))
+            {
+                using (WordprocessingDocument doc = WordprocessingDocument.Open(memoryStream, true))
+                {
+                    var body = doc.MainDocumentPart.Document.Body;
+
+                    foreach (var paragraph in body.Elements<DocumentFormat.OpenXml.Wordprocessing.Paragraph>())
+                    {
+                        if (paragraph.InnerText.Contains("Web Development", StringComparison.OrdinalIgnoreCase))
+                        {
+                            var run = paragraph.Elements<DocumentFormat.OpenXml.Wordprocessing.Run>().FirstOrDefault();
+                            if (run != null)
+                            {
+                                var textElement = run.GetFirstChild<Text>();
+                                if (textElement != null)
+                                {
+                                    textElement.Text += ", " + string.Join(", ", skills);
+                                }
+                                else
+                                {
+                                    run.AppendChild(new Text(", " + string.Join(", ", skills)));
+                                }
+                            }
+                            else
+                            {
+                                paragraph.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(", " + string.Join(", ", skills))));
+                            }
+                            break;
+                        }
+                    }
+
+                    doc.Save();
+                }
+
+                return memoryStream.ToArray();
+            }
+        }
+
+        private byte[] AddSkillsToPdf(byte[] fileData, List<string> skills)
+        {
+            using (var outputStream = new MemoryStream())
+            {
+                using (PdfReader pdfReader = new PdfReader(fileData))
+                {
+                    using (PdfStamper pdfStamper = new PdfStamper(pdfReader, outputStream))
+                    {
+                        PdfContentByte cb = pdfStamper.GetOverContent(pdfReader.NumberOfPages);
+                        cb.BeginText();
+                        cb.SetFontAndSize(BaseFont.CreateFont(), 12);
+                        cb.ShowTextAligned(Element.ALIGN_LEFT, "Additional Skills: " + string.Join(", ", skills), 100, 100, 0);
+                        cb.EndText();
+                    }
+                }
+
+                return outputStream.ToArray();
             }
         }
     }
