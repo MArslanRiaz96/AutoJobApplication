@@ -1,40 +1,43 @@
 ﻿@page "/upload"
-@using AutoJobApplication.Data
 @using AutoJobApplication.Interfaces
+@inject IFileStateService FileStateService
 @inject IFileUploadService FileUploadService
-@inject FileStateService FileStateService
+@inject ISkillService SkillService
+@inject ICvService CvService
 
-<h3>Upload Your CV</h3>
-<InputFile OnChange="HandleFileSelected" />
-@if (!string.IsNullOrEmpty(UploadMessage))
+<h3>Upload CV</h3>
+
+<InputFile OnChange="HandleSelected" />
+
+@if (errorMessage != null)
 {
-    <p>@UploadMessage</p>
+    <div class="alert alert-danger">@errorMessage</div>
 }
 
 @code {
-    private string UploadMessage;
+    private string errorMessage;
 
-    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    private async Task HandleSelected(InputFileChangeEventArgs e)
     {
-        var file = e.File;
-        if (file != null && (file.ContentType == "application/pdf" || file.ContentType == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"))
+        try
         {
-            // Store the uploaded file in the state service
+            var file = e.File;
             FileStateService.SetUploadedFile(file);
+            var fileData = await FileUploadService.UploadFileAsync(file);
 
-            var result = await FileUploadService.UploadFileAsync(file);
-            if (result != null && result.Length > 0)
+            if (fileData == null)
             {
-                UploadMessage = "File uploaded successfully.";
+                throw new ArgumentNullException("fileData", "The uploaded file data cannot be null.");
             }
-            else
-            {
-                UploadMessage = "File upload failed.";
-            }
+
+            FileStateService.SetUploadedFile(file);
+            FileStateService.UploadedFileData = fileData;
+
+            errorMessage = null;
         }
-        else
+        catch (Exception ex)
         {
-            UploadMessage = "Invalid file format. Please upload a DOCX or PDF file.";
+            errorMessage = "An error occurred while uploading the file: " + ex.Message;
         }
     }
 }

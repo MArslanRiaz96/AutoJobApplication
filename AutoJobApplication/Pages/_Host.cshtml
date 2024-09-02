@@ -1,23 +1,24 @@
 ﻿@page "/"
 @namespace AutoJobApplication.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AutoJobApplication</title>
-    <base href="~/" />
-    <link href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
-    <script src="~/fileUtil.js"></script> <!-- Ensure this script is loaded correctly -->
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <script src="fileUtil.js"></script> <!-- Include custom JavaScript -->
 </head>
 <body>
     <app>
-        <component type="typeof(AutoJobApplication.App)" render-mode="ServerPrerendered" />
+        <component type="typeof(App)" render-mode="ServerPrerendered" />
     </app>
     <script src="_framework/blazor.server.js"></script>
-    <script src="~/fileUtil.js"></script>
-
 </body>
 </html>

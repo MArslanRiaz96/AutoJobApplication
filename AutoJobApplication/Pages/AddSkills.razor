@@ -1,17 +1,52 @@
 ﻿@page "/add-skills"
 @using AutoJobApplication.Interfaces
 @inject ISkillService SkillService
+@inject IFileStateService FileStateService
+@inject ICvService CvService
 
 <h3>Add Additional Skills</h3>
-<textarea @bind="skills" placeholder="Enter additional skills here"></textarea>
-<button @onclick="AddNewSkills">Add Skills</button>
+
+<textarea @bind="newSkills" placeholder="Enter additional skills here"></textarea>
+<button class="btn btn-primary" @onclick="AddNewSkills">Add Skills</button>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
 @code {
-    private string skills;
+    private string newSkills;
+    private string errorMessage;
 
-    private void AddNewSkills()
+    private async Task AddNewSkills()
     {
-        SkillService.AddSkills(skills.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList());
-        skills = string.Empty;
+        try
+        {
+            if (string.IsNullOrWhiteSpace(newSkills))
+            {
+                errorMessage = "Please enter at least one skill.";
+                return;
+            }
+
+            var skillsList = newSkills.Split(',').Select(s => s.Trim()).ToList();
+            SkillService.AddSkills(skillsList);
+
+            if (FileStateService.UploadedFileData == null)
+            {
+                throw new InvalidOperationException("No CV is available for updating.");
+            }
+
+            // Update the CV with the new skills
+            var updatedCv = CvService.AddSkillsToCv(FileStateService.UploadedFileData, SkillService.GetSkills());
+
+            FileStateService.UploadedFileData = updatedCv; // Update the file data with the new CV
+
+            newSkills = string.Empty; // Clear the input field after adding skills
+            errorMessage = null;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "An error occurred while adding skills: " + ex.Message;
+        }
     }
 }

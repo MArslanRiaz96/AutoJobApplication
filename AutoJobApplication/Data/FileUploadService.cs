@@ -10,8 +10,8 @@ namespace AutoJobApplication.Data
         public async Task<byte[]> UploadFileAsync(IBrowserFile file)
         {
             using var memoryStream = new MemoryStream();
-            await file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).CopyToAsync(memoryStream); // Adjust size limit as needed
-            return memoryStream.ToArray(); // Return the byte array
+            await file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024).CopyToAsync(memoryStream);
+            return memoryStream.ToArray();
         }
     }
 }

@@ -1,44 +1,32 @@
-﻿@page "/download"
-@using AutoJobApplication.Data
+﻿@page "/download-cv"
 @using AutoJobApplication.Interfaces
-@inject IJSRuntime JS
-@inject IFileUploadService FileUploadService
-@inject FileStateService FileStateService
+@inject IFileStateService FileStateService
+@inject IJSRuntime JSRuntime
 
-<h3>Upload and Download Your Updated CV</h3>
-<button @onclick="DownloadNewCv">Download Updated CV</button>
+<h3>Download Updated CV</h3>
 
-@if (!string.IsNullOrEmpty(DownloadMessage))
-{
-    <p>@DownloadMessage</p>
-}
+<button class="btn btn-primary" @onclick="DownloadNewCv">Download Updated CV</button>
 
 @code {
-    private string DownloadMessage;
-
     private async Task DownloadNewCv()
     {
-        var file = FileStateService.UploadedFile;
+        try
+        {
+            if (FileStateService.UploadedFileData == null)
+            {
+                throw new InvalidOperationException("No CV is available for download.");
+            }
 
-        if (file != null)
-        {
-            // Convert the uploaded file to a byte array
-            var fileBytes = await FileUploadService.UploadFileAsync(file);
-            if (fileBytes != null && fileBytes.Length > 0)
-            {
-                // Use JavaScript interop to save the file
-                string base64Cv = Convert.ToBase64String(fileBytes);
-                await JS.InvokeVoidAsync("saveAsFile", file.Name, base64Cv);
-                DownloadMessage = "CV downloaded successfully.";
-            }
-            else
-            {
-                DownloadMessage = "Error: Unable to generate updated CV.";
-            }
+            var base64Cv = Convert.ToBase64String(FileStateService.UploadedFileData);
+            var fileName = FileStateService.UploadedFile?.Name ?? "UpdatedCV.docx";
+
+            // Call JavaScript to download the file
+            await JSRuntime.InvokeVoidAsync("saveAsFile", fileName, base64Cv);
         }
-        else
+        catch (Exception ex)
         {
-            DownloadMessage = "No CV has been uploaded yet. Please upload a CV first.";
+            // Handle the error (e.g., log it, show a message to the user, etc.)
+            Console.WriteLine("Error downloading CV: " + ex.Message);
         }
     }
 }

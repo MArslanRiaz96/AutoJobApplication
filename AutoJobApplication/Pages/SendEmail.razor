@@ -1,53 +1,54 @@
-﻿@page "/email"
+﻿@page "/send-email"
 @using AutoJobApplication.Interfaces
+@inject IFileStateService FileStateService
 @inject IEmailService EmailService
-@inject IFileUploadService FileUploadService
 
-<h3>Email Your CV</h3>
+<h3>Email Updated CV</h3>
 
-<input type="file" @onchange="HandleFileSelected" />
-<p>@UploadMessage</p>
+<div class="mb-3">
+    <label for="emailAddress" class="form-label">Email Address</label>
+    <input type="email" class="form-control" id="emailAddress" @bind="emailAddress">
+</div>
+<div class="mb-3">
+    <label for="emailSubject" class="form-label">Subject</label>
+    <input type="text" class="form-control" id="emailSubject" @bind="emailSubject">
+</div>
+<div class="mb-3">
+    <label for="emailBody" class="form-label">Body</label>
+    <textarea class="form-control" id="emailBody" @bind="emailBody"></textarea>
+</div>
+<button class="btn btn-primary" @onclick="SendNewEmail">Send Email</button>
 
-<input type="text" @bind="RecipientEmail" placeholder="Recipient Email" />
-<textarea @bind="CoverLetter" placeholder="Cover Letter"></textarea>
-<input type="text" @bind="EmailSubject" placeholder="Email Subject" />
-<textarea @bind="EmailBody" placeholder="Email Body"></textarea>
-<button @onclick="SendEmailNew">Send Email</button>
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
 @code {
-    private string RecipientEmail;
-    private string CoverLetter;
-    private string EmailSubject;
-    private string EmailBody;
-    private byte[] Attachment; // To hold the uploaded CV file
-    private string UploadMessage = "";
+    private string emailAddress;
+    private string emailSubject;
+    private string emailBody;
+    private string errorMessage;
 
-    private async Task HandleFileSelected(ChangeEventArgs e)
+    private async Task SendNewEmail()
     {
-        var file = ((IBrowserFile)e.Value);
-        if (file != null && (file.ContentType == "application/pdf" || file.ContentType == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"))
+        try
         {
-            // Use FileUploadService to read the file into a byte array
-            Attachment = await FileUploadService.UploadFileAsync(file);
-            UploadMessage = "File uploaded successfully.";
-        }
-        else
-        {
-            UploadMessage = "Invalid file format. Please upload a DOCX or PDF file.";
-        }
-    }
+            if (string.IsNullOrWhiteSpace(emailAddress) ||
+                string.IsNullOrWhiteSpace(emailSubject) ||
+                string.IsNullOrWhiteSpace(emailBody) ||
+                FileStateService.UploadedFileData == null)
+            {
+                throw new InvalidOperationException("All fields must be filled out and a CV must be uploaded.");
+            }
 
-    private async Task SendEmailNew()
-    {
-        // Check if attachment is available before sending
-        if (Attachment != null && Attachment.Length > 0)
-        {
-            await EmailService.SendEmailAsync(RecipientEmail, CoverLetter, EmailSubject, EmailBody, Attachment);
+            await EmailService.SendEmailAsync(emailAddress, "Cover Letter", emailSubject, emailBody, FileStateService.UploadedFileData);
+
+            errorMessage = null;
         }
-        else
+        catch (Exception ex)
         {
-            // Handle case where attachment is missing
-            UploadMessage = "Please upload a valid CV file before sending.";
+            errorMessage = "An error occurred while sending the email: " + ex.Message;
         }
     }
 }
