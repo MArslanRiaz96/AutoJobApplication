@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -117,20 +118,39 @@ namespace AutoJobApplication.Data
                     {
                         using (PdfStamper pdfStamper = new PdfStamper(pdfReader, outputStream))
                         {
-                            PdfContentByte cb = pdfStamper.GetOverContent(pdfReader.NumberOfPages);
-                            cb.BeginText();
-                            cb.SetFontAndSize(BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED), 12);
+                            for (int i = 1; i <= pdfReader.NumberOfPages; i++)
+                            {
+                                PdfContentByte cb = pdfStamper.GetOverContent(i);
+                                var textStrategy = new MyLocationTextExtractionStrategy();
+                                string extractedText = PdfTextExtractor.GetTextFromPage(pdfReader, i, textStrategy);
 
-                            // Define the position where the skills should be added
-                            float x = 100; // X coordinate
-                            float y = 100; // Y coordinate (adjust as needed)
+                                Console.WriteLine($"Extracted Text from Page {i}: {extractedText}");
 
-                            cb.ShowTextAligned(Element.ALIGN_LEFT, "Additional Skills: " + string.Join(", ", skills), x, y, 0);
-                            cb.EndText();
+                                var location = textStrategy.GetLocation("Web Development");
+
+                                if (location != null)
+                                {
+                                    float x = location.Value.x;
+                                    float y = location.Value.y;
+
+                                    cb.BeginText();
+                                    cb.SetFontAndSize(BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.EMBEDDED), 12);
+
+                                    string skillsText = ", " + string.Join(", ", skills);
+                                    cb.ShowTextAligned(Element.ALIGN_LEFT, skillsText, x + 10, y, 0);
+
+                                    cb.EndText();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Could not find 'Web Development' on this page.");
+                                }
+                            }
                         }
-                    }
 
-                    return outputStream.ToArray();
+                        return outputStream.ToArray();
+                    }
                 }
             }
             catch (Exception ex)
@@ -139,5 +159,72 @@ namespace AutoJobApplication.Data
                 throw new InvalidOperationException("Failed to process the PDF file.", ex);
             }
         }
+
+
     }
+
+    public class LocationTextExtractionStrategy
+    {
+        public List<(float x, float y)> GetCharInfo(string searchText)
+        {
+            // Implement logic to capture character positions for the given searchText
+            // You may need to override RenderText method to capture the coordinates of each character
+            // This example is simplified
+            return new List<(float x, float y)>();
+        }
+    }
+    public class MyLocationTextExtractionStrategy : ITextExtractionStrategy
+    {
+        public class TextChunk
+        {
+            public string Text { get; set; }
+            public Vector StartLocation { get; set; }
+
+            public TextChunk(string text, Vector startLocation)
+            {
+                Text = text;
+                StartLocation = startLocation;
+            }
+        }
+
+        private readonly List<TextChunk> _chunks = new List<TextChunk>();
+
+        public void RenderText(TextRenderInfo renderInfo)
+        {
+            Vector startLocation = renderInfo.GetBaseline().GetStartPoint();
+            string text = renderInfo.GetText();
+
+            _chunks.Add(new TextChunk(text, startLocation));
+        }
+
+        public string GetResultantText() => string.Join(" ", _chunks.Select(chunk => chunk.Text));
+
+        public void BeginTextBlock() { }
+        public void EndTextBlock() { }
+        public void RenderImage(ImageRenderInfo renderInfo) { }
+
+        public (float x, float y)? GetLocation(string searchText)
+        {
+            string concatenatedText = string.Join("", _chunks.Select(chunk => chunk.Text));
+
+            int index = concatenatedText.IndexOf(searchText, StringComparison.OrdinalIgnoreCase);
+            if (index >= 0)
+            {
+                // Find the chunk that contains the start of the searchText
+                foreach (var chunk in _chunks)
+                {
+                    if (concatenatedText.Contains(chunk.Text))
+                    {
+                        return (chunk.StartLocation[Vector.I1], chunk.StartLocation[Vector.I2]);
+                    }
+                }
+            }
+
+            return null;
+        }
+    }
+
+
+
+
 }
