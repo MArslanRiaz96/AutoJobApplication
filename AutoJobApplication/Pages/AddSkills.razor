@@ -37,7 +37,7 @@
             }
 
             // Update the CV with the new skills
-            var updatedCv = CvService.AddSkillsToCv(FileStateService.UploadedFileData, SkillService.GetSkills());
+            var updatedCv = CvService.AddSkillsToDocx(FileStateService.UploadedFileData, SkillService.GetSkills());
 
             FileStateService.UploadedFileData = updatedCv; // Update the file data with the new CV
 

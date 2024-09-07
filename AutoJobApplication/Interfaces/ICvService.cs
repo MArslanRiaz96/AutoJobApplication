@@ -4,6 +4,6 @@ namespace AutoJobApplication.Interfaces
 {
     public interface ICvService
     {
-        byte[] AddSkillsToCv(byte[] fileData, List<string> skills);
+        byte[] AddSkillsToDocx(byte[] docxData, List<string> skills);
     }
 }
